@@ -91,16 +91,42 @@ $(document).ready(function() {
         .done(function(data) {
             console.log( "success" );
             console.log(data);
+            clean();
+            for(var i=0; i<data.length; i++){
+                showObject(data[i]);
+            }
         })
         .fail(function(data) {
             console.log( "error" );
-            console.log(data);
         })
         .always(function(data) {
-            console.log( "complete" );
-            console.log(data);
+            console.log( "always end." );
             console.log(jsonData);
         });
     });
 
 });
+
+function clean(){
+    $('div.resultDiv').remove();
+}
+
+var resultBlock = '';
+
+function showObject(inputData){
+    console.log('show 1 time');
+
+    var typeList = '';
+
+    /*
+    for(var i=0; i<inputData.type.length; i++){
+        typeList = typeList + inputData.type[i]+' ';
+    }
+    */
+
+
+
+    resultBlock = '<div class="resultDiv"><p class="title">活動標題：'+inputData.title+'</p><p class="location">活動地點：'+inputData.location+'</p><p class="date">活動日期：'+inputData.start_date+'~'+inputData.end_date+'</p><p class="type">活動類型：'+typeList+'</p><p class="description">活動介紹：'+inputData.description+'</p><p class="url">活動報名網址：'+inputData.url+'</p><p class="host">活動主辦單位'+inputData.host+'</p><p class="fee">活動費用'+inputData.fee+'</p><p class="number_of_people">活動人數'+inputData.number_of_people+'</p></div>';
+
+    $('form').after( resultBlock );
+}
