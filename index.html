@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Document</title>
+
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <form id="searchForm" action="" method="post">
+            <div>
+                <span>請輸入關鍵字(活動名稱、簡介)</span>
+                <input type="text" id="eventKeyword">
+                <br />
+                <span>請輸入主辦單位</span>
+                <input type="text" id="hostKeyword">
+                <br />
+                <!--  -->
+                <span>地點：</span>
+                <span>北</span>
+                <input type="checkbox" id="north">
+                <span>中</span>
+                <input type="checkbox" id="medium">
+                <span>南</span>
+                <input type="checkbox" id="south">
+                <span>其他</span>
+                <input type="checkbox" id="other">
+                <br />
+                <!--  -->
+                <span>類別：</span>
+                <span>A</span>
+                <input type="checkbox" id="typeA">
+                <span>B</span>
+                <input type="checkbox" id="typeB">
+                <span>C</span>
+                <input type="checkbox" id="typeC">
+                <span>D</span>
+                <input type="checkbox" id="typeD">
+                <br />
+                <!--  -->
+                <span>時間(YYYY-MM-DD 24h:60m)：</span>
+                <input type="text" id="minTime">~<input type="text" id="maxTime">
+                <br />
+                <!--  -->
+                <span>費用：</span>
+                <input type="number" id="minFee">~<input type="number" id="maxFee">
+                <br />
+                <!--  -->
+                <span>參加人數：</span>
+                <input type="number" id="minPeople">~<input type="number" id="maxPeople">
+                <br />
+                <!--  -->
+                <button type="submit" name="button" id="submitBtn">Submit Form</button>
+            </div>
+        </form>
+
+        <div id="testDiv"></div>
+
+        <script src="jquery-3.1.1/jquery-3.1.1.min.js"></script>
+        <script src="main.js"></script>
+
+    </body>
+
+</html>
