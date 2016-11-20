@@ -1,30 +1,3 @@
-/*
-function SendRequest(MSG)
-{
-    // my json to pass to
-    var objJSON = {
-        "msg" : MSG
-    };
-
-    // convert to string in html request
-    var strJSON = encodeURIComponent(JSON.stringify(objJSON));
-
-    // setup a new ajax request , with method, json string, function to call on complete
-    new Ajax.Request("ReceiveJSON.jsp",
-    {
-        method: "post",
-        parameters: "strJSON=" + strJSON,
-        onComplete: Respond
-    });
-}
-
-// function to call when response
-function Respond(REQ)
-{
-    // change some div's content into json value
-    document.getElementById("ResponseDiv").innerHTML=REQ.responseText;
-}
-*/
 $(document).ready(function() {
 
     $('#submitBtn').click(function(e){
@@ -118,15 +91,25 @@ function showObject(inputData){
 
     var typeList = '';
 
-    /*
+
     for(var i=0; i<inputData.type.length; i++){
         typeList = typeList + inputData.type[i]+' ';
     }
-    */
 
-
-
-    resultBlock = '<div class="resultDiv"><p class="title">活動標題：'+inputData.title+'</p><p class="location">活動地點：'+inputData.location+'</p><p class="date">活動日期：'+inputData.start_date+'~'+inputData.end_date+'</p><p class="type">活動類型：'+typeList+'</p><p class="description">活動介紹：'+inputData.description+'</p><p class="url">活動報名網址：'+inputData.url+'</p><p class="host">活動主辦單位'+inputData.host+'</p><p class="fee">活動費用'+inputData.fee+'</p><p class="number_of_people">活動人數'+inputData.number_of_people+'</p></div>';
+    resultBlock =
+        '<div class="resultDiv">'+
+            '<p class="title">活動標題：'+inputData.title+'</p>'+
+            '<p class="location">活動地點：'+inputData.location+'</p>'+
+            '<p class="date">活動日期：'+inputData.start_date+' ~ '+inputData.end_date+'</p>'+
+            '<p class="type">活動類型：'+typeList+'</p>'+
+            '<p class="description">活動介紹：'+inputData.description+'</p>'+
+            '<p>活動報名網址：</p><a class="url" href="' + inputData.url + '">'+inputData.url+'</a>'+
+            '<p class="host">活動主辦單位：'+inputData.host+'</p>'+
+            '<p class="fee">活動費用：'+inputData.fee+'</p>'+
+            '<p class="number_of_people">活動人數：'+inputData.number_of_people+'</p>'+
+            '<p class="source">活動來源：'+inputData.source+'</p>'+
+            '<img class="image_url" src="' + inputData.image_url + '">'+
+        '</div>';
 
     $('form').after( resultBlock );
 }
